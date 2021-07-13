@@ -318,6 +318,27 @@ Fig.tight_layout()
 
 plt.imshow(imagen_Rx)
 
+# Visualizar el cambio entre las señales
+fig, (ax1, ax2, ax3, ax4) = plt.subplots(nrows=4, sharex=True, figsize=(14, 7))
+
+# La onda cuadrada moduladora (bits de entrada)
+ax1.plot(moduladora[0:600], color='r', lw=2)
+ax1.set_ylabel('$b(t)$')
+
+# La señal modulada
+ax2.plot(senal_Tx[0:600], color='g', lw=2)
+ax2.set_ylabel('$s(t)$')
+
+# La señal modulada al dejar el canal
+ax3.plot(senal_Rx[0:600], color='b', lw=2)
+ax3.set_ylabel('$s(t) + n(t)$')
+
+# La señal demodulada
+ax4.plot(senal_demodulada[0:600], color='m', lw=2)
+ax4.set_ylabel('$b^{\prime}(t)$')
+ax4.set_xlabel('$t$ / milisegundos')
+fig.tight_layout()
+plt.show()
 
 # Ahora resuelvo la sección 4.2
 
